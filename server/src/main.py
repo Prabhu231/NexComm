@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from .auth.controller import router as auth_router
 from  .database.core import Base, engine
 
+from .constants import DATABASE_URL
+
 app = FastAPI()
 
 """Only uncomment below to create new tables, otherwise tests will fail if not commented"""

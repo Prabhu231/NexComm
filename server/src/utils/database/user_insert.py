@@ -1,9 +1,11 @@
+from fastapi import Depends
+from ...database.core import get_db
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from ...database.models.user import User
 from ..hash.hash_string import hash
 
-def create_user(db: Session, email: str, password: str) -> User:
+def create_user(email: str, password: str, db: Session) -> User:
     try:
         existing_user = db.query(User).filter_by(email=email).first()
         if existing_user:
