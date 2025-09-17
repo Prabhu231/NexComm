@@ -1,5 +1,3 @@
-from fastapi import Depends
-from ...database.core import get_db
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from ...database.models.user import User
